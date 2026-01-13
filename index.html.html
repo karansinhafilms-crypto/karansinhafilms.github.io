@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah Al Hassan - Digital Marketing Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #2d3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #f5f7fa;
+            --dark: #1a252f;
+            --gray: #7f8c8d;
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        a:hover {
+            color: var(--accent);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(45, 62, 80, 0.9), rgba(45, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .hero-highlight {
+            color: var(--secondary);
+            font-weight: 700;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .contact-info {
+            margin-top: 30px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+            width: 20px;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-category h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--secondary);
+            display: inline-block;
+        }
+        
+        .skill-list {
+            list-style-type: none;
+        }
+        
+        .skill-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .skill-list i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+        
+        /* Projects Section */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 40px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .project-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .project-tags span {
+            background-color: #e8f4fc;
+            color: var(--secondary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        /* Experience & Education */
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .timeline-item h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            margin-bottom: 40px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero {
+                padding: 120px 0;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline-item {
+                padding: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">Abdullah<span>.</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Abdullah Al Hassan</h1>
+            <p>Certified <span class="hero-highlight">Digital Marketing</span> professional with hands-on experience in social media marketing, SEO, and local business branding. Eager to contribute analytical and creative skills to a growth-focused organization.</p>
+            <a href="#projects" class="btn">View My Projects</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Digital Marketing Professional</h3>
+                    <p>I am a certified Digital Marketing fresher from Delhi Institute of Digital Marketing (DIDM) with practical project experience in social media marketing, SEO basics, and local business branding. Skilled in content planning, visual design using Canva, and campaign management.</p>
+                    <p>My goal is to apply my analytical and creative skills to help businesses grow their online presence and reach their target audience effectively.</p>
+                    
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> New Delhi, India</p>
+                        <p><i class="fas fa-phone"></i> +91-6297784748</p>
+                        <p><i class="fas fa-envelope"></i> abdullahalhassan188@gmail.com</p>
+                    </div>
+                </div>
+                <div class="about-skills">
+                    <h3>Quick Overview</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-check-circle"></i> Certified Digital Marketing Professional</li>
+                        <li><i class="fas fa-check-circle"></i> Hands-on Social Media Management</li>
+                        <li><i class="fas fa-check-circle"></i> SEO & Local Business Marketing</li>
+                        <li><i class="fas fa-check-circle"></i> Content Strategy & Visual Design</li>
+                        <li><i class="fas fa-check-circle"></i> Fluent in English & Hindi</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Skills & Competencies</h2>
+            </div>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Digital Marketing</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-bullhorn"></i> Social Media Marketing (SMM)</li>
+                        <li><i class="fas fa-search"></i> Search Engine Optimization (SEO)</li>
+                        <li><i class="fas fa-store"></i> Local Business Marketing</li>
+                        <li><i class="fas fa-ad"></i> Google Ads (PPC Basics)</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Content Strategy</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-calendar-alt"></i> Content Planning</li>
+                        <li><i class="fas fa-hashtag"></i> Hashtag Research</li>
+                        <li><i class="fas fa-paint-brush"></i> Creative Design</li>
+                        <li><i class="fas fa-chart-line"></i> Campaign Management</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>Technical Tools</h3>
+                    <ul class="skill-list">
+                        <li><i class="fas fa-chart-bar"></i> Google Analytics</li>
+                        <li><i class="fas fa-search"></i> Google Search Console</li>
+                        <li><i class="fab fa-facebook"></i> Meta Business Suite</li>
+                        <li><i class="fas fa-ad"></i> Google Ads</li>
+                        <li><i class="fas fa-palette"></i> Canva</li>
+                        <li><i class="fas fa-file-alt"></i> MS Office</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            <div class="projects-container">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="IT Repair Services Website">
+                    </div>
+                    <div class="project-content">
+                        <h3>Zapinnovative IT Repair Services</h3>
+                        <p>A professional website for an IT repair company specializing in laptop, computer, and printer repairs. The site features service details, customer testimonials, before/after galleries, and contact forms.</p>
+                        <div class="project-tags">
+                            <span>Website Development</span>
+                            <span>Business Branding</span>
+                            <span>Service Presentation</span>
+                        </div>
+                        <a href="https://zap-innovate-web.lovable.app/" target="_blank" class="btn">Visit Project</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Salon Website">
+                    </div>
+                    <div class="project-content">
+                        <h3>Studio's Salon Art Website</h3>
+                        <p>A complete website for a premium beauty salon offering hair transformations, skin treatments, and grooming services. The site includes service details, promotions, booking options, and gallery showcases.</p>
+                        <div class="project-tags">
+                            <span>Local Business</span>
+                            <span>Service Promotion</span>
+                            <span>Booking Integration</span>
+                        </div>
+                        <a href="https://karansinhafilms-crypto.github.io/studiossalonart-website/" target="_blank" class="btn">Visit Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section id="experience" style="background-color: #f8f9fa;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience & Education</h2>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <h3>Digital Marketing Trainee</h3>
+                    <p class="timeline-date">Studio S Art Salon | New Delhi | 2024 – Present</p>
+                    <ul>
+                        <li>Managed Facebook and Instagram business pages to maintain consistent brand messaging</li>
+                        <li>Designed promotional creatives and social media posts using Canva</li>
+                        <li>Executed content calendars and performed hashtag research to increase organic reach</li>
+                        <li>Analyzed engagement metrics to support local business visibility and branding</li>
+                    </ul>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Digital Marketing Course</h3>
+                    <p class="timeline-date">Delhi Institute of Digital Marketing (DIDM) | 2026</p>
+                    <p>Comprehensive certification covering social media marketing, SEO, PPC advertising, content strategy, and analytics.</p>
+                </div>
+                
+                <div class="timeline-item">
+                    <h3>Bachelor's Degree</h3>
+                    <p class="timeline-date">Indira Gandhi National Open University (IGNOU) | 2019</p>
+                    <p>Completed undergraduate studies with a focus on business and communication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div style="text-align: center; max-width: 700px; margin: 0 auto;">
+                <p>I'm always interested in new opportunities and collaborations. Feel free to reach out if you'd like to discuss digital marketing strategies, projects, or potential job opportunities.</p>
+                <div style="margin: 40px 0;">
+                    <a href="mailto:abdullahalhassan188@gmail.com" class="btn" style="margin-right: 15px;"><i class="fas fa-envelope"></i> Send Email</a>
+                    <a href="tel:+916297784748" class="btn"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <h2 style="font-size: 2rem; margin-bottom: 20px;">Abdullah Al Hassan</h2>
+                <p>Digital Marketing Professional | Content Strategist | Social Media Manager</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#experience">Experience</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Abdullah Al Hassan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add active class to nav links on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if(pageYOffset >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if(link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
